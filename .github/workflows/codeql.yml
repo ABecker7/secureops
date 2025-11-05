@@ -45,8 +45,8 @@ jobs:
         if: ${{ always() }}
         run: |
           sudo apt install docker-compose-v2
-          docker compose up -d -f DVRA/docker-compose.yml
-
+          cd  DVRA
+          docker compose up -d 
       # Initialize the CodeQL tools for scanning Python
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
