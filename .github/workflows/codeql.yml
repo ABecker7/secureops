@@ -38,12 +38,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          
 
       # Optional: build Docker Compose environment (useful for app + DB integration testing)
       - name: Build Docker environment
         if: ${{ always() }}
         run: |
-          docker-compose -f docker-compose.yml build
+          apt install docker.io docker-compose-v2
+          docker compose up -d 
 
       # Initialize the CodeQL tools for scanning Python
       - name: Initialize CodeQL
