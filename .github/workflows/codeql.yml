@@ -44,7 +44,7 @@ jobs:
       - name: Build Docker environment
         if: ${{ always() }}
         run: |
-          sudo apt install docker.io docker-compose-v2
+          sudo apt install docker-compose-v2
           docker compose up -d 
 
       # Initialize the CodeQL tools for scanning Python
